@@ -34,15 +34,16 @@ CREATE SERVER <server name>
 
 I created SERVER but which remote user can connect I did not specify yet. 
 
-``
+````
 CREATE USER MAPPING FOR <local user name>
         SERVER <server name>
         OPTIONS (user '<remote user name>', password '<remote user's password>');
-``
+````
 
 ## CREATE FOREIGN TABLE/IMPORT FOREIGN SCHEMA
 
 This is not necessary but I would like to prefer create new schema for foreign tables. Otherwise you create you foreign tables into existed schema. 
+
 ````
 CREATE SCHEMA <local schema> ;
 ````
@@ -51,18 +52,18 @@ You can import a table or all tables under a specific schema.
 
 ### Create foreign table
 
-``
+````
 CREATE FOREIGN TABLE <foreign table name> (col1 data type, col2 data type...)
 SERVER <server name>
 OPTIONS (schema_name '<remote schema>', table_name '<remote table>');
-``
+````
 
 ### Import foreign schema
 
-``
+````
 IMPORT FOREIGN SCHEMA <remote schema name> 
     FROM SERVER <server name> INTO <local schema>;
-``
+````
 
 >DDL structure is not transfer from remote to local side. If your table has new column, you should re create your foreign table.
 
